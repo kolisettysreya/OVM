@@ -1,0 +1,5 @@
+package ovm.model;
+
+public class ElectionResult {
+
+}

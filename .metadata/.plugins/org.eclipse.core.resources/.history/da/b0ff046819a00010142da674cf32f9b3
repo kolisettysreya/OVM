@@ -1,0 +1,15 @@
+package ovm.repository;
+
+
+
+import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.stereotype.Repository;
+
+import ovm.model.ElectionRequest;
+
+
+
+@Repository
+public interface ElectionRequestRepository extends JpaRepository<ElectionRequest, Long> {
+	 List<ElectionRequest> findByStatus(RequestStatus status);
+}

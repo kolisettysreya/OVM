@@ -1,0 +1,5 @@
+package ovm.services;
+
+public class ElectionResultService {
+
+}

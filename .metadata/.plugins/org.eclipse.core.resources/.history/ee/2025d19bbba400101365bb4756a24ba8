@@ -1,0 +1,5 @@
+package ovm.controller;
+
+public class ElectionResultController {
+
+}
