@@ -85,7 +85,7 @@ const Homepage = ({ onLoginSuccess }) => {
 
     // Handle account inactive error
     if (response.status === 403 && data.error === 'ACCOUNT_INACTIVE') {
-      alert('⚠️ Account Inactive\n\nYour account has been deactivated by the administrator. Please contact support for activation.');
+      alert('⚠️Your account has been deactivated by the administrator. Please contact support for activation.');
       return;
     }
 
