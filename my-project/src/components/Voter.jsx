@@ -367,7 +367,7 @@ const renderAvailableElections = () => (
           <div className="text-center py-12 text-gray-500">
             <BarChart3 className="w-16 h-16 mx-auto mb-4 text-gray-300" />
             <p className="text-lg font-semibold">No Results Yet</p>
-            <p className="text-sm mt-2">Results will appear here after elections are completed</p>
+            <p className="text-sm mt-2">Results will appear here after elections are conducted</p>
           </div>
         )}
       </div>
