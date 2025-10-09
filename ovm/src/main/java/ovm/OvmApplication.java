@@ -10,12 +10,14 @@ import org.springframework.scheduling.annotation.EnableScheduling;
 @EnableScheduling
 public class OvmApplication extends SpringBootServletInitializer {
 
-    @Override
-    protected SpringApplicationBuilder configure(SpringApplicationBuilder application) {
-        return application.sources(OvmApplication.class);
-    }
-
+    // Main method for running as standalone (optional)
     public static void main(String[] args) {
         SpringApplication.run(OvmApplication.class, args);
+    }
+
+    // This method is required for WAR deployment on external Tomcat
+    @Override
+    protected SpringApplicationBuilder configure(SpringApplicationBuilder builder) {
+        return builder.sources(OvmApplication.class);
     }
 }
