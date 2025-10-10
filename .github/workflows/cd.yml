@@ -23,7 +23,9 @@ jobs:
       # 👇 Tell it to install inside frontend folder
       - name: Install dependencies
         working-directory: ./frontend
-        run: npm install
+        run: |
+          npm install
+          npm install --save-dev gh-pages
 
       # 👇 Build from frontend folder
       - name: Build the project
