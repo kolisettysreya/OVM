@@ -1,45 +1,38 @@
 name: Deploy React App to GitHub Pages
-
 on:
   push:
     branches: [main]
-
 permissions:
   contents: write  
-
 jobs:
   build-and-deploy:
     runs-on: ubuntu-latest
-
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
-
+      
       - name: Set up Node.js
         uses: actions/setup-node@v4
         with:
           node-version: 18
-
-      # 👇 Tell it to install inside frontend folder
+      
       - name: Install dependencies
-        working-directory: ./frontend
+        working-directory: ./my-project
         run: |
-          npm install
+          npm ci
           npm install --save-dev gh-pages
-
-      # 👇 Build from frontend folder
+      
       - name: Build the project
-        working-directory: ./frontend
+        working-directory: ./my-project
         run: npm run build
-
+      
       - name: Configure Git identity
         run: |
           git config --global user.name "kolisettysreya"
           git config --global user.email "kolisettysreya25@gmail.com"
-
-      # 👇 Deploy using gh-pages from inside frontend
+      
       - name: Authenticate and deploy to GitHub Pages
-        working-directory: ./frontend
+        working-directory: ./my-project
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
