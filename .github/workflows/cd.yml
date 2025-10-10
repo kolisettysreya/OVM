@@ -20,10 +20,14 @@ jobs:
         with:
           node-version: 18
 
+      # 👇 Tell it to install inside frontend folder
       - name: Install dependencies
-        run: npm ci
+        working-directory: ./frontend
+        run: npm install
 
+      # 👇 Build from frontend folder
       - name: Build the project
+        working-directory: ./frontend
         run: npm run build
 
       - name: Configure Git identity
@@ -31,7 +35,9 @@ jobs:
           git config --global user.name "kolisettysreya"
           git config --global user.email "kolisettysreya25@gmail.com"
 
+      # 👇 Deploy using gh-pages from inside frontend
       - name: Authenticate and deploy to GitHub Pages
+        working-directory: ./frontend
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
